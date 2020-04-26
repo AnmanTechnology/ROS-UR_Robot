@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="robot_ip" default="127.0.0.1"/>
+    <arg name="target_filename" default="robot_calibration.yaml" doc="The extracted calibration information will be written to this target file."/>
+
+    <node name="calibration_correction" pkg="ur_calibration" type="calibration_correction" output="screen" respawn="false" respawn_delay="0">
+        <param name="robot_ip" value="$(arg robot_ip)"/>
+        <param name="output_filename" value="$(find titan_project)/etc/$(arg target_filename)"/>
+
+    </node>
+
+</launch>
